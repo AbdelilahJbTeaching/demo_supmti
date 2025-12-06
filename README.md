@@ -6,7 +6,7 @@ This is a Symfony 7.4 API project for managing students and classrooms, develope
 ## How to Clone the Project
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AbdelilahJbTeaching/demo_supmti.git
 cd demo
 ```
 
