@@ -28,7 +28,9 @@ final class StudentController extends AbstractController
             return $this->studentService->toArray($student);
         }, $students);
 
-        return $this->json($students);
+        return $this->render('student/index.html.twig', [
+            'students' => $students,
+        ]);
     }
 
     #[Route('/student/{id}', name: 'app_student_show', methods: ['GET'])]
@@ -36,7 +38,9 @@ final class StudentController extends AbstractController
     {
         $student = $this->studentRepository->find($id);
 
-        return $this->json($this->studentService->toArray($student));
+        return $this->render('student/details.html.twig', [
+            'student' => $student
+        ]);
     }
 
     #[Route('/student/{id}', name: 'app_student_delete', methods: ['DELETE'])]
@@ -57,7 +61,7 @@ final class StudentController extends AbstractController
         $classroom = new Classroom();
         $classroom->setName('CISI');
         $classroom->setLevel(3);
-        
+
         $this->entityManager->persist($classroom);
 
         $student = new Student();
